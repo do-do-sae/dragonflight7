@@ -6,7 +6,7 @@ public class Player : MonoBehaviour
     public float moveSpeed = 3;
     void Start()
     {
-        
+        //SingletonTest.instance.PlayerSound();
     }
 
     void Update()
@@ -16,4 +16,28 @@ public class Player : MonoBehaviour
         //x쪽 이동 설정
         transform.Translate(distanceX, 0, 0);
     }
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        //trigger 충돌일 경우 한번 실행
+        if (collision.CompareTag("Enemy"))
+        {
+            //적 삭제
+            Destroy(collision.gameObject);
+            //자기자신 삭제
+            Destroy(gameObject);
+        }
+
+    }
+
+    ////둘 다 트리거가 아닐때
+    //private void OnCollisionEnter2D(Collision2D collision)
+    //{
+    //    if (collision.gameObject.tag == "Enemy")
+    //    {
+    //        //적 삭제
+    //        Destroy(collision.gameObject);
+    //        //자기자신 삭제
+    //        Destroy(gameObject);
+    //    }
+    //}
 }
