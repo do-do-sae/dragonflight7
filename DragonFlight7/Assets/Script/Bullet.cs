@@ -30,8 +30,10 @@ public class Bullet : MonoBehaviour
             //이펙트 생성
             GameObject go = Instantiate(effect, transform.position, Quaternion.identity);
             Destroy(go, 1);
-
+            //싱글톤 함수 출력
             SoundManager.instance.SoundDie();
+            //점수 반영
+            GameManager.instance.AddScore(100);
             //미사일 충돌 / 삭제
             Destroy(collision.gameObject);
             //자기자신 삭제
