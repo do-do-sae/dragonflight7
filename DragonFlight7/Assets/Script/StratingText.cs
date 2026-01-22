@@ -9,8 +9,6 @@ public class StratingText : MonoBehaviour
     void Start()
     {
         starttext = GetComponent<Text>();
-        
-        StartCoroutine(BlinkText(0.5f));
 
         blinckCoroutine = StartCoroutine(BlinkText(0.5f));
 
